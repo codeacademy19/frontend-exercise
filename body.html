@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>cards</title>
+    <style>
+        td {
+  border: 1px solid black;
+  border-collapse: collapse;
+    }
+    th, td {
+    padding: 15px;
+    }
+    </style>
+    <script type="text/javascript">
+    function createCards(){
+    var myPosts =[{
+    "date": "2nd Januray, 2018",
+    "readingTime": "2 mins",
+    "title": "The future of abstract art and the culture ...",
+    "description": "Create a blog post subtitle that summarizes your post in a few short, punchy sentences and entices your...",
+    "claps": 10,
+    "liked": false,
+    "image": "abstract.png"
+}, {
+    "date": "31st Januray, 2018",
+    "readingTime": "1 min",
+    "title": "How painting outdoors can transform your ",
+    "description": "Create a blog post subtitle that summarizes your post in a few short, punchy sentences and entices your...",
+    "claps": 1,
+    "liked": true,
+    "image": "outdoor.png"
+}, {
+    "date": "20th March, 2018",
+    "readingTime": "2 mins",
+    "title": "10 young painters you need to know",
+    "description": "Create a blog post subtitle that summarizes your post in a few short, punchy sentences and entices your...",
+    "claps": 15,
+    "liked": false,
+    "image": "young-painters.png"
+}, {
+    "date": "22nd June, 2018",
+    "readingTime": "5 mins",
+    "title": "Tips for creating the perfect art",
+    "description": "Create a blog post subtitle that summarizes your post in a few short, punchy sentences and entices your...",
+    "claps": 11,
+    "liked": false,
+    "image": "perfect-art.png"
+}, {
+    "date": "4th Feburary, 2019",
+    "readingTime": "9 mins",
+    "title": "Stay inspired: top artists blog ...",
+    "description": "Create a blog post subtitle that summarizes your post in a few short, punchy sentences and entices your...",
+    "claps": 45,
+    "liked": true,
+    "image": "inspired.png"
+}, {
+    "date": "10th Januray, 2019",
+    "readingTime": "2 mins",
+    "title": "5 reasons why everyone should try an...",
+    "description": "Create a blog post subtitle that summarizes your post in a few short, punchy sentences and entices your...",
+    "claps": 11,
+    "liked": false,
+    "image": "reason.png"
+}]
+let table = document.createElement("table"); 
+let index=0;
+
+for (let i = 0; i < 2; i++) {
+    for (let j = 0; j < 3; j++) {
+        let htmlContent=`<p style="text-align:center"><img src="./Images/${myPosts[index].image}" width=\"300px\" height=\"250px\" align="middle"/></p>
+        <p><font size="2"><span style="float:left;">${myPosts[index].date}</span></font><font size="2" ><span style="float:right;">${myPosts[index].readingTime}</span></font></p></br>
+        <p><font size="5" face="verdana" align="left" > ${myPosts[index].title}</font><br></p>
+        <font size="2" face="verdana" > ${myPosts[index].description}</font></br><hr>
+        <img src="./Icons/clapping.svg" width=\"20px\" height=\"20px\ align="left"/>${myPosts[index].claps}`;
+        if(myPosts[index].liked===true){
+            htmlContent=htmlContent+`<span style="float:right;"><img src="./Icons/heart-red.svg" width=\"20px\" height=\"20px\ align="left"/></span> `;
+        }else{
+            htmlContent=htmlContent+`<span style="float:right;"><img src="./Icons/heart-black.svg" width=\"20px\" height=\"20px\ align="left"/></span> `; 
+        }
+        index+=1;
+        document.getElementById("table").rows[i].cells[j].innerHTML= htmlContent;
+    }
+}
+    }
+    </script>
+</head>
+<body onload="createCards()">
+    <table id ="table" width="100%" cellspacing="30">
+        <tr>
+            <td></td>
+            <td ></td>
+            <td ></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td ></td>
+            <td ></td>
+        </tr>
+    </table>
+</body>
+<!--<frameset rows="50%,50%">
+        <frameset cols="30%,*,30%">
+                <frame src="card1.html">
+                <frame src="card2.html">
+                <frame src="card3.html">
+        </frameset>
+        <frameset cols="30%,*,30%">
+
+                <frame src="card4.html">
+                <frame src="card5.html">
+                <frame src="card6.html">
+       
+        
+        </frameset>
+</frameset>-->
+<!--<body >
+        <input type="button" onclick="CreateTableFromJSON()" value="Create Table From JSON" />
+    
+     <p id="showData">data</p>
+</body>
+
+<script>
+    function CreateTableFromJSON() {
+        var myPosts =[{
+    "date": "2nd Januray, 2018",
+    "readingTime": "2 mins",
+    "title": "The future of abstract art and the culture ...",
+    "description": "Create a blog post subtitle that summarizes your post in a few short, punchy sentences and entices your...",
+    "claps": 10,
+    "liked": false,
+    "image": "abstract.png"
+}, {
+    "date": "31st Januray, 2018",
+    "readingTime": "1 min",
+    "title": "How painting outdoors can transform your ",
+    "description": "Create a blog post subtitle that summarizes your post in a few short, punchy sentences and entices your...",
+    "claps": 1,
+    "liked": true,
+    "image": "outdoor.png"
+}, {
+    "date": "20th March, 2018",
+    "readingTime": "2 mins",
+    "title": "10 young painters you need to know",
+    "description": "Create a blog post subtitle that summarizes your post in a few short, punchy sentences and entices your...",
+    "claps": 15,
+    "liked": false,
+    "image": "young-painters.png"
+}, {
+    "date": "22nd June, 2018",
+    "readingTime": "5 mins",
+    "title": "Tips for creating the perfect art",
+    "description": "Create a blog post subtitle that summarizes your post in a few short, punchy sentences and entices your...",
+    "claps": 11,
+    "liked": false,
+    "image": "perfect-art.png"
+}, {
+    "date": "4th Feburary, 2019",
+    "readingTime": "9 mins",
+    "title": "Stay inspired: top artists blog ...",
+    "description": "Create a blog post subtitle that summarizes your post in a few short, punchy sentences and entices your...",
+    "claps": 45,
+    "liked": true,
+    "image": "inspired.png"
+}, {
+    "date": "10th Januray, 2019",
+    "readingTime": "2 mins",
+    "title": "5 reasons why everyone should try an...",
+    "description": "Create a blog post subtitle that summarizes your post in a few short, punchy sentences and entices your...",
+    "claps": 11,
+    "liked": false,
+    "image": "reason.png"
+}]
+
+        // EXTRACT VALUE FOR HTML HEADER. 
+        // ('Book ID', 'Book Name', 'Category' and 'Price')
+        var col = [];
+        /*for (var i = 0; i < myBooks.length; i++) {
+            for (var key in myBooks[i]) {
+                if (col.indexOf(key) === -1) {
+                    col.push(key);
+                }
+            }
+        }*/
+
+        // CREATE DYNAMIC TABLE.
+        var table = document.createElement("table");
+
+        // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
+
+        var tr = table.insertRow(-1);                   // TABLE ROW.
+        let dataLength= 0;
+        /*for (var i = 0; i < myPosts.length; i++) {
+            var td = document.createElement("td");      // TABLE HEADER.
+            td.innerHTML = dataLength;
+            tr.appendChild(td);
+            dataLength=dataLength+1;
+
+        }*/
+
+        // ADD JSON DATA TO THE TABLE AS ROWS.
+        for (var i = 0; i < myBooks.length; i++) {
+
+            tr = table.insertRow(-1);
+
+            for (var j = 0; j < 3; j++) {
+                var tabCell = tr.insertCell(-1);
+                tabCell.innerHTML = 'data';
+            }
+        }
+
+        // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
+        var divContainer = document.getElementById("showData");
+        divContainer.innerHTML = "";
+        divContainer.appendChild(table);
+    }
+</script>-->
+</html>
